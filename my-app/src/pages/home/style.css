@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #cfeb33 0%, rgba(30,29,79, 0.8) 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Formulário */
+form {
+  margin-bottom: 40px;
+}
+
+form h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+form input {
+  width: 100%;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+form input::placeholder {
+  color: #999;
+}
+
+form button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46a3 100%);
+}
+
+form button:active {
+  transform: translateY(0);
+}
+
+/* Lista de usuários */
+.user-card {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e1e5e9;
+  transition: all 0.3s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-info p {
+  margin-bottom: 8px;
+  color: #495057;
+  font-size: 16px;
+}
+
+.user-info p:last-child {
+  margin-bottom: 0;
+}
+
+.user-info p strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Botão de deletar */
+.delete-button {
+  background: #ff4757;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 45px;
+  height: 45px;
+}
+
+.delete-button:hover {
+  background: #ff3742;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+}
+
+.delete-button:active {
+  transform: scale(0.95);
+}
+
+.delete-button img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+/* Mensagem quando não há usuários */
+.no-users {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  padding: 40px 20px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  border: 2px dashed #dee2e6;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 30px 25px;
+    margin: 10px;
+  }
+  
+  form h1 {
+    font-size: 24px;
+  }
+  
+  .user-card {
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .delete-button {
+    align-self: flex-end;
+    width: fit-content;
+  }
+}
+
+/* Animações para os cards de usuário */
+.user-card {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo para inputs com dados inválidos */
+form input:invalid {
+  border-color: #ff4757;
+}
+
+form input:valid {
+  border-color: #2ed573;
+}
+
+/* Placeholder personalizado para inputs */
+form input[name="nome"]::placeholder::before {
+  content: "Digite seu nome completo";
+}
+
+form input[name="idade"]::placeholder::before {
+  content: "Digite sua idade";
+}
+
+form input[name="email"]::placeholder::before {
+  content: "Digite seu email";
+}
